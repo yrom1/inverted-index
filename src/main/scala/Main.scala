@@ -1,6 +1,5 @@
 import scala.io.Source
 import java.io._
-import scala.util.{Try, Success, Failure}
 
 object InvertedIndex {
   // From http://cowa.github.io/2015/12/07/inverted-index-scala/
@@ -27,7 +26,7 @@ object InvertedIndex {
     // List(document0.txt word0 word1 word5, document1.txt word0 word5 word7)
     
     println(lines.map(_.split(" ")).map(_.toList.toString))
-    // List([Ljava.lang.String;@69ee0da7, [Ljava.lang.String;@72e71723)
+    // List(List(document0.txt, word0, word1, word5), List(document1.txt, word0, word5, word7))
 
     println(lines.map(_.split(" "))
       .flatMap(x => x.drop(1).map(y => (y, x(0)))))
@@ -54,7 +53,6 @@ object InvertedIndex {
 object Main {
   def main(args: Array[String]): Unit = {
     val iiMap = InvertedIndex("input.txt")
-    println(iiMap)
 
     val file = new File("output.txt")
     val bw = new BufferedWriter(new FileWriter(file))
