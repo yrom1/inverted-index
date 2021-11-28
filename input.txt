@@ -1,0 +1,2 @@
+document0.txt word0 word1 word5
+document1.txt word0 word5 word7

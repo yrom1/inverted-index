@@ -1,0 +1,4 @@
+word0 document0.txt document1.txt
+word1 document0.txt
+word5 document0.txt document1.txt
+word7 document1.txt
