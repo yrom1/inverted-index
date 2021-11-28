@@ -53,12 +53,12 @@ object InvertedIndex {
 object Main {
   def main(args: Array[String]): Unit = {
     val iiMap = InvertedIndex("input.txt")
-
     val file = new File("output.txt")
     val bw = new BufferedWriter(new FileWriter(file))
-    
-    for (line <- iiMap.mkString("\n")) { bw.write(line) }
-    bw.write("\n")
+    // for ((k, v) <- iiMap) {
+    //   bw.write(k.concat(" ").concat(v.mkString(" ")).concat("\n"))
+    // }
+    iiMap.foreach{case (k,v) => bw.write(k.concat(" ").concat(v.mkString(" ")).concat("\n"))}
     bw.close()
   }
 }
